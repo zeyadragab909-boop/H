@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #0a0b1d, #05050a);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .heart-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heart {
+      position: relative;
+      width: 200px;
+      height: 180px;
+      background: linear-gradient(135deg, #d68393,#d68393);
+      transform: rotate(-45deg);
+      animation: beat 1.4s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(237, 109, 147, 0.6);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      background: linear-gradient(135deg, #d68393, #d68393);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -100px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 100px;
+      top: 0;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: rotate(-45deg) scale(1);
+        filter: brightness(1);
+      }
+      50% {
+        transform: rotate(-45deg) scale(1.1);
+        filter: brightness(1.2);
+      }
+    }
+
+    .shine {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 70%);
+      border-radius: 50%;
+      filter: blur(12px);
+      mix-blend-mode: screen;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { opacity: 0.5; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+      to { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+    }
+
+    .text {
+      position: absolute;
+      font-size: 2.9rem;
+      color: rgb(0, 0, 0);
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart-container">
+    <div class="heart">
+      <div class="shine"></div>
+    </div>
+    <!-- ✨ هنا بتحط الاسم أو الحرف -->
+    <div class="text">H</div>
+  </div>
+
+</body>
+</html>
